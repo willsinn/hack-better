@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, Content, Button } from "react-bulma-components";
+import Loader from "../Loader";
 
 class Login extends Component {
   state = {
@@ -20,7 +21,7 @@ class Login extends Component {
         <Card.Content>
           <Content>
             {loading ? (
-              <div>Loading...</div>
+              <Loader />
             ) : (
               <Button color="primary" onClick={this.handleSignIn}>
                 Sign in with Blockstack
