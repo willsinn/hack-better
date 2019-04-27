@@ -7,7 +7,6 @@ import AdminUsernameRoute from "./admin/_username/routes";
 
 class Routes extends Component {
   state = { user: {} };
-
   componentDidMount() {
     const { userSession } = this.props;
 
@@ -18,7 +17,7 @@ class Routes extends Component {
 
   render() {
     const { user } = this.state;
-    const { userSession } = this.props;
+    const { userSession, userData, users, createUser } = this.props;
 
     if (_.isEmpty(user)) {
       return <Loader />;
@@ -33,7 +32,14 @@ class Routes extends Component {
           />
           <Route
             path="/admin/:username"
-            render={({ match }) => <AdminUsernameRoute match={match} />}
+            render={({ match }) => (
+              <AdminUsernameRoute
+                match={match}
+                userData={userData}
+                users={users}
+                createUser={createUser}
+              />
+            )}
           />
         </Switch>
       </UserProvider>
