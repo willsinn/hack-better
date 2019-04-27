@@ -1,25 +1,17 @@
 import React, { Component } from "react";
 
 class ProfilePage extends Component {
-  state = { foundUser: null };
+  _isMounted = false;
 
-  componentWillMount() {
-    const { username, users } = this.props;
-
-    if (users.find(user => user.username === username)) {
-      this.setState({ foundUser: true });
-    } else {
-      this.setState({ foundUser: false });
-    }
+  componentDidMount() {
+    this._isMounted = true;
   }
 
   render() {
-    const { username, createUser } = this.props;
-    const { foundUser } = this.state;
+    const { username, createUser, users } = this.props;
 
-    if (foundUser === false) {
+    if (this._isMounted && !users.find(user => user.username === username)) {
       createUser(username);
-      this.setState({foundUser: true})
     }
 
     return <div>Hello {username}</div>;
