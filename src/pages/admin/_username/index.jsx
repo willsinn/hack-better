@@ -1,28 +1,36 @@
 import React, { Component } from "react";
+import ProfileForm from "./ProfileForm";
+// import HomePage from "../../../containers/HomePage";
+import ProfileShowPage from './ProfileShowPage'
 
 class ProfilePage extends Component {
-  state = { foundUser: null };
+  _isMounted = false;
 
-  componentWillMount() {
-    const { username, users } = this.props;
+  state = {
+    newUser: false
+  };
 
-    if (users.find(user => user.username === username)) {
-      this.setState({ foundUser: true });
-    } else {
-      this.setState({ foundUser: false });
-    }
+  componentDidMount() {
+    this._isMounted = true;
   }
 
   render() {
-    const { username, createUser } = this.props;
-    const { foundUser } = this.state;
+    const { username, createUser, users, currentUser } = this.props;
 
-    if (foundUser === false) {
+    if (this._isMounted && !users.find(user => user.username === username)) {
       createUser(username);
-      this.setState({foundUser: true})
+      this.setState({ newUser: true });
     }
 
-    return <div>Hello {username}</div>;
+    return (
+      <div>
+        {this.state.newUser ? (
+          <ProfileForm updateUser={this.props.updateUser} currentUser={currentUser} />
+        ) : (
+          <ProfileShowPage currentUser={currentUser} />
+        )}
+      </div>
+    );
   }
 }
 

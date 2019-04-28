@@ -5,6 +5,8 @@ import UserProvider from "../components/User/UserProvider";
 import Loader from "../components/Loader";
 import AdminUsernameRoute from "./admin/_username/routes";
 import IdeaForm from "../forms/IdeaForm";
+import ProfileShowPage from './admin/_username/ProfileShowPage'
+import ProfileForm from './admin/_username/ProfileForm'
 
 class Routes extends Component {
   state = { user: {} };
@@ -18,7 +20,7 @@ class Routes extends Component {
 
   render() {
     const { user } = this.state;
-    const { userSession, userData, users, createUser } = this.props;
+    const { userSession, userData, users, createUser, updateUser, currentUser } = this.props;
 
     if (_.isEmpty(user)) {
       return <Loader />;
@@ -28,11 +30,6 @@ class Routes extends Component {
       <div>
         <Switch>
           <Route
-            exact
-            path="/"
-            render={() => <Redirect to={`/admin/${user.username}`} />}
-          />
-          <Route
             path="/admin/:username"
             render={({ match }) => (
               <AdminUsernameRoute
@@ -40,6 +37,8 @@ class Routes extends Component {
                 userData={userData}
                 users={users}
                 createUser={createUser}
+                updateUser={updateUser}
+                currentUser={currentUser}
               />
 
             )}
@@ -49,7 +48,19 @@ class Routes extends Component {
             path="/submitidea"
             render={() => <IdeaForm createIdea={this.props.createIdea} /> }
           />
-          
+          <Route
+            path="/profileform"
+            render={()=><ProfileForm updateUser={updateUser} currentUser={currentUser} {...this.props} />}
+            />
+          <Route
+            path="/profile"
+            render={()=><ProfileShowPage currentUser={currentUser} {...this.props} />}
+            />
+          <Route
+            exact
+            path="/"
+            render={() => <Redirect to={`/admin/${user.username}`} />}
+          />
         </Switch>
         </div>
       </UserProvider>
