@@ -33,10 +33,7 @@ class ProfileForm extends React.Component {
   };
 
   render() {
-<<<<<<< HEAD
     const { classes } = this.props;
-=======
->>>>>>> e855d851d022fe857ecc65feca6eb0a0bee2b768
     return (
       <div className={classes.root}>
         <form className={classes.container} noValidate autoComplete="off" onSubmit={(e)=>this.submitHandler(e)}>

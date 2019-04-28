@@ -14,10 +14,10 @@ class IdeasContainer extends Component {
 
     render() {
         const ideas = this.state.ideas.map(idea => {return <IdeasCard key={idea.id} idea={idea}/>})
-        
-        
+
+
         return (
-            <div> 
+            <div className="idea-container"> 
                 {ideas}
             </div>
         );

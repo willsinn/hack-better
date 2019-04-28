@@ -5,3 +5,141 @@
     height: 200px;
     width: auto;
 }
+
+.idea-container{
+  display: grid;
+  grid-column-start:2;
+}
+.idea-card-info {
+  width: 610px;
+  height: 337px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  padding-top: 13px;
+  padding-left: 85px;
+  margin-bottom: 15px;
+
+}
+.idea-card-info h5 {
+  width: 179px;
+height: 22px;
+font-size: 17px;
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+line-height: 1.29;
+letter-spacing: normal;
+color: #909090;
+margin-bottom: 15px;
+}
+.idea-card-info strong{
+  width: 441px;
+height: 22px;
+font-size: 20px;
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+line-height: 1.1;
+letter-spacing: normal;
+color: #444444;
+}
+.idea-card-info p:nth-child(odd) {
+  width: 179px;
+height: 22px;
+font-size: 20px;
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+line-height: 1.47;
+letter-spacing: 0.4px;
+color: #98a5ce;
+margin-bottom: 5px;
+
+}
+.idea-card-info p:nth-child(even) {
+  width: 278px;
+ height: 22px;
+ font-size: 15px;
+ font-weight: normal;
+ font-style: normal;
+ font-stretch: normal;
+ line-height: 1.29;
+ letter-spacing: normal;
+ color: #444444;
+ margin-bottom: 15px;
+
+}
+.category-tag {
+  width: 169px;
+  height: 22px;
+  border-radius: 13px;
+  border: solid 1px #5d80ef;
+  background-color: #ffffff;
+  display: flex;
+}
+.category-tag h3 {
+  width: 132px;
+  height: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: #5d80ef;
+  padding-left: 15px;
+
+}
+.category-icon {
+  width: 11px;
+height: 11px;
+background-color: #5d80ef;
+margin-top: 4px;
+margin-left: 10px;
+
+}
+.ideas-container{
+  display: grid;
+  grid-template-columns: repeat(3,4fr);
+
+}
+
+.voting-title {
+  width: 235px;
+  height: 26px;
+  font-size: 28px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #5d80ef;
+  margin-bottom: 15px;
+  margin-left: 40%;
+
+}
+
+.hack-event {
+width: 130px;
+ height: 19px;
+ font-size: 20px;
+ font-weight: 500;
+ font-style: normal;
+ font-stretch: normal;
+ line-height: normal;
+ letter-spacing: normal;
+ text-align: center;
+ color: #afbce5;
+ margin-bottom: 30px;
+ margin-left: 45%;
+}
+.navbar-menu, .navbar-item {
+  background-color: #5d80ef;
+
+}
+.navbar-menu {
+  display: flex;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+
+}

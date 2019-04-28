@@ -5,9 +5,11 @@ class EventShowPage extends Component {
     render(){
         return(
             <div>
-                <h1> Pitch Ideas Voting </h1>
-                <h2> {this.props.event.title} </h2>
-                <IdeasContainer />
+                <h1 className="voting-title"> Idea Voting Phase </h1>
+                <h2 className="hack-event"> {this.props.event.title} </h2>
+                <div className="ideas-container" >
+                  <IdeasContainer />
+                </div>
             </div>
         );
     }
