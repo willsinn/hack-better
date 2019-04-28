@@ -8,6 +8,8 @@ import IdeaForm from "../forms/IdeaForm";
 import ProfileShowPage from './admin/_username/ProfileShowPage'
 import ProfileForm from './admin/_username/ProfileForm'
 import EventsContainer from "./EventsContainer"
+import IdeasContainer from "../components/Ideas/IdeasContainer";
+import EventShowPage from "./EventShowPage";
 
 class Routes extends Component {
   state = { user: {} };
@@ -20,6 +22,7 @@ class Routes extends Component {
   }
 
   render() {
+    
     const { events } = this.props
     const { user } = this.state;
     const { userSession, userData, users, createUser, updateUser, currentUser } = this.props;
@@ -76,6 +79,11 @@ class Routes extends Component {
             exact
             path="/"
             render={() => <Redirect to={`/admin/${user.username}`} />}
+            />
+
+          <Route 
+            path="/eventsshow"
+            render={()=> (<EventShowPage event={this.props.events[0]}/>)}
             />
          
 
