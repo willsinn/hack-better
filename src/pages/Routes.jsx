@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import UserProvider from "../components/User/UserProvider";
 import Loader from "../components/Loader";
 import AdminUsernameRoute from "./admin/_username/routes";
+import IdeaForm from "../forms/IdeaForm";
 
 class Routes extends Component {
   state = { user: {} };
@@ -24,6 +25,7 @@ class Routes extends Component {
     }
     return (
       <UserProvider userSession={userSession}>
+      <div>
         <Switch>
           <Route
             exact
@@ -39,9 +41,17 @@ class Routes extends Component {
                 users={users}
                 createUser={createUser}
               />
+
             )}
           />
+          
+          <Route
+            path="/submitidea"
+            render={() => <IdeaForm/> }
+          />
+          
         </Switch>
+        </div>
       </UserProvider>
     );
   }
