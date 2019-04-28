@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Navbar } from "react-bulma-components";
+import { Link } from 'react-router-dom'
 
 class NavBar extends Component {
   state = {
@@ -30,7 +31,7 @@ class NavBar extends Component {
       <Navbar color="info" fixed="top" active={open}>
         <Navbar.Brand>
           <Navbar.Item>
-            <p>ER Now</p>
+            <p>Hack Space</p>
           </Navbar.Item>
 
           <Navbar.Burger onClick={this.toggleNavBar} />
@@ -41,7 +42,7 @@ class NavBar extends Component {
             {isUserSignedIn && (
               <React.Fragment>
                 <Navbar.Item>Messages</Navbar.Item>
-                <Navbar.Item>My Profile</Navbar.Item>
+                <Link to="/profile"><Navbar.Item>My Profile</Navbar.Item></Link>
                 <Navbar.Item onClick={this.handleSignOut}>Sign Out</Navbar.Item>
               </React.Fragment>
             )}
