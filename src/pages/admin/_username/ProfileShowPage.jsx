@@ -3,7 +3,6 @@ import { Link, withRouter } from 'react-router-dom'
 
 class ProfileShowPage extends Component {
   render() {
-    console.log(this.props.location)
     const { currentUser } = this.props;
     return (
       <div className="profile-container">

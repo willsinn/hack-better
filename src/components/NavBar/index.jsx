@@ -41,15 +41,13 @@ class NavBar extends Component {
           <Navbar.Container position="end">
             {isUserSignedIn && (
               <React.Fragment>
-                <Navbar.Item>
-                  <Link to="/profile">My Profile</Link>
-                </Navbar.Item>
+                <Link to="/profile"><Navbar.Item>
+                  My Profile
+                </Navbar.Item></Link>
                 
-                <Navbar.Item>
-                  <Link to="/events">
-                    Events
-                  </Link>
-                </Navbar.Item>
+                <Link to="/events"><Navbar.Item>
+                    Events  
+                </Navbar.Item></Link>
                 
                 <Navbar.Item onClick={this.handleSignOut}>Sign Out</Navbar.Item>
               </React.Fragment>

@@ -45,6 +45,13 @@ class Routes extends Component {
 
             )}
           />
+           <Route
+            path={`/events/:event`}
+            render={() => (
+              <EventsContainer
+              />
+            )}
+          />
           
           <Route
             path="/submitidea"
@@ -54,6 +61,13 @@ class Routes extends Component {
             path="/profileform"
             render={()=><ProfileForm updateUser={updateUser} currentUser={currentUser} {...this.props} />}
             />
+             <Route
+            path={`/events`}
+            render={() => (
+              <EventsContainer events={events}
+              />
+            )}
+          />
           <Route
             path="/profile"
             render={()=><ProfileShowPage currentUser={currentUser} {...this.props} />}
@@ -63,21 +77,9 @@ class Routes extends Component {
             path="/"
             render={() => <Redirect to={`/admin/${user.username}`} />}
             />
-          <Route
-            path={`/events/:event`}
-            render={() => (
-              <EventsContainer
-              />
-            )}
-          />
+         
 
-          <Route
-            path={`/events`}
-            render={() => (
-              <EventsContainer events={events}
-              />
-            )}
-          />
+         
    
 
         </Switch>

@@ -45,7 +45,7 @@ class App extends Component {
     this.getIdeas();
   };
 
-  getUsers = () => {
+  getUsers() {
     fetch("http://localhost:3000/api/v1/users")
       .then(res => res.json())
       .then(users => {
@@ -76,11 +76,11 @@ class App extends Component {
   };
 
 
-    getIdeas = () => {
+    getIdeas() {
       fetch("http://localhost:3000/api/v1/ideas")
       .then(res => res.json())
       .then(ideas => {
-        this.setState(ideas)
+        this.setState({ideas})
       })
     }
 
@@ -130,38 +130,9 @@ class App extends Component {
   };
 
 
-
-
-  // render() {
-  //   console.log(this.state);
-    
-  //   const { userSession, userData, users } = this.state;
-
-  // updateUser = user => {
-  //   let id = this.state.currentUser.id
-  //   let username = this.state.currentUser.username
-  //   fetch(`http://localhost:3000/api/v1/users/${id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       username: username,
-  //       full_name: user.full_name,
-  //       photo_url: user.photo,
-  //       role_title: user.role,
-  //       email: user.email,
-  //       team_id: null
-  //     })
-  //   }).then(res=>res.json())
-  //   .then(user => this.setState({currentUser: user}))
-  // };
-
-
   render() {
     const { userSession, userData, users, currentUser } = this.state;
-
+    console.log(this.state.ideas)
     return (
       <div className="App">
         <NavBar userSession={userSession} />
