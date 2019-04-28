@@ -1,2 +1,7 @@
 @import "./utility";
 @import "~react-bulma-components/dist/react-bulma-components.min.css";
+
+.profile-photo img {
+    height: 200px;
+    width: auto;
+}

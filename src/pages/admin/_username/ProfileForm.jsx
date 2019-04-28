@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 
 class ProfileForm extends React.Component {
   //username and team_id should be pre-filled
@@ -20,17 +20,18 @@ class ProfileForm extends React.Component {
     this.props.updateUser(this.state);
 
     this.setState({
-      id: this.props.currentUser.id,
-      username: this.props.currentUser.username,
       full_name: "",
       photo: "",
       role: "",
       email: ""
     });
+
+    setTimeout(() => this.props.history.push('/profile'), 1000)
+
   };
 
   render() {
-    console.log(this.props.currentUser)
+    console.log(this.props.location)
     return (
       <div>
         <form onSubmit={this.submitHandler}>
@@ -66,10 +67,10 @@ class ProfileForm extends React.Component {
             value={this.state.value}
             onChange={this.changeHandler}
           />
-          <Link to='/profile'><input type="submit" value="Submit" /></Link>
+          <input type="submit" value="Submit" />
         </form>
       </div>
     );
   }
 }
-export default ProfileForm;
+export default withRouter(ProfileForm);

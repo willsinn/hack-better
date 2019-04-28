@@ -6,6 +6,7 @@ import { isUserSignedIn, UserSession, loadUserData } from "blockstack";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import Routes from "./pages/Routes";
+import {withRouter} from 'react-router-dom'
 
 class App extends Component {
   state = {
@@ -70,25 +71,28 @@ class App extends Component {
   };
 
   updateUser = user => {
-    fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+    let id = this.state.currentUser.id
+    let username = this.state.currentUser.username
+    fetch(`http://localhost:3000/api/v1/users/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
+        username: username,
         full_name: user.full_name,
         photo_url: user.photo,
         role_title: user.role,
-        email: user.email
+        email: user.email,
+        team_id: null
       })
-    }).then(console.log)
-    
+    }).then(res=>res.json())
+    .then(user => this.setState({currentUser: user}))
   };
 
   render() {
     const { userSession, userData, users, currentUser } = this.state;
-    console.log(currentUser)
     return (
       <div className="App">
         <NavBar userSession={userSession} />
@@ -111,4 +115,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

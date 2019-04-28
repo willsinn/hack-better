@@ -28,11 +28,6 @@ class Routes extends Component {
       <UserProvider userSession={userSession}>
         <Switch>
           <Route
-            exact
-            path="/"
-            render={() => <Redirect to={`/admin/${user.username}`} />}
-          />
-          <Route
             path="/admin/:username"
             render={({ match }) => (
               <AdminUsernameRoute
@@ -46,13 +41,18 @@ class Routes extends Component {
             )}
           />
           <Route
-            path="/profile"
-            render={()=><ProfileShowPage currentUser={currentUser}/>}
+            path="/profileform"
+            render={()=><ProfileForm updateUser={updateUser} currentUser={currentUser} {...this.props} />}
             />
           <Route
-            path="/profileform"
-            render={()=><ProfileForm updateUser={updateUser} currentUser={currentUser}/>}
+            path="/profile"
+            render={()=><ProfileShowPage currentUser={currentUser} {...this.props} />}
             />
+          <Route
+            exact
+            path="/"
+            render={() => <Redirect to={`/admin/${user.username}`} />}
+          />
         </Switch>
       </UserProvider>
     );
