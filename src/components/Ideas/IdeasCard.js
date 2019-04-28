@@ -19,18 +19,27 @@ class IdeasCard extends Component {
     const { idea } = this.props;
 
     return (
-      <div>
+      < div className = "idea-card-info" >
         <strong>{idea.title}</strong>
-        <i>{idea.topic}</i>
         <h5> by {idea.full_name}</h5>
 
-        <p>Problem: {idea.problem}</p>
-        <p>Solution: {idea.solution}</p>
-        <i>Audience: {idea.audience}</i>
+        <p>Audience</p>
+        <p>{idea.audience}</p>
+
+        <p>Problem</p>
+        <p>{idea.problem}</p>
+
+        <p>Solution</p>
+        <p>{idea.solution}</p>
+        
+        <div className="category-tag">
+            <div className="category-icon"></div>
+            <h3>{idea.topic}</h3>
+        </div>
 
         <span onClick={this.handleClick}>❤️</span>
         <span>{this.state.ideaVotes}</span>
-        <br />
+       
       </div>
     );
   }

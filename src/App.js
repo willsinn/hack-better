@@ -146,14 +146,14 @@ class App extends Component {
         user_id: this.state.currentUser.id,
         idea_id
       })
+    })
+    .then(res => res.json())
+    .then(vote => {
+
+      let newArr = this.state.ideas.map(idea => idea.id === vote.idea_id)
+
+      this.setState({ ideas: newArr });
     });
-    // .then(res => res.json())
-    // .then(vote => {
-
-    //   let newArr = this.state.ideas.map(idea => idea.id === vote.idea_id)
-
-    //   this.setState({ ideas: newArr });
-    // });
   };
 
   joinTeam = team_id => {
