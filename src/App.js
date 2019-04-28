@@ -134,8 +134,8 @@ class App extends Component {
 
 
   render() {
-
     const { userSession, userData, users, currentUser, events } = this.state;
+
     return (
       <div className="App">
         <NavBar userSession={userSession} />
