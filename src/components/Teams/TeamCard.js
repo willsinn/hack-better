@@ -23,9 +23,7 @@ class TeamCard extends Component {
           <h3 className="team-title">{team.pitch_title}</h3>
 
           <h5 className="team-name"> by {team.team_name}</h5>
-        </div>
 
-        <div className="member-num">
           <span className="team-members">5/8</span>
         </div>
 

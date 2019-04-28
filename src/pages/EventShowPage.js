@@ -14,8 +14,6 @@ class EventShowPage extends Component {
   render() {
     return (
       <div className="event-container">
-        <h1 className="idea-title"> Pitch Ideas Voting </h1>
-        <h2> {this.props.event.title} </h2>
         {this.state.phase === 1 ? (
           <IdeasContainer
             createVote={this.props.createVote}

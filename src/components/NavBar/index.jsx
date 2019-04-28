@@ -49,7 +49,7 @@ class NavBar extends Component {
                   <Navbar.Item>Events</Navbar.Item>
                 </Link>
 
-                <Link to="/eventshow">
+                <Link to="/eventsshow">
                   <Navbar.Item>Pitches</Navbar.Item>
                 </Link>
 
