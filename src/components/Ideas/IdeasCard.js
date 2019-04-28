@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class IdeasCard extends Component {
   render() {
     const {idea} = this.props
-    console.log(idea);
     
+    console.log(this.props.createVote)
     return (
       <div>
           <strong>{idea.title}</strong> 

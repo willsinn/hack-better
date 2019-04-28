@@ -67,7 +67,7 @@ class Routes extends Component {
              <Route
             path={`/events`}
             render={() => (
-              <EventsContainer events={events}
+              <EventsContainer events={events} createVote={this.props.createVote}
               />
             )}
           />
@@ -83,7 +83,7 @@ class Routes extends Component {
 
           <Route 
             path="/eventsshow"
-            render={()=> (<EventShowPage event={this.props.events[0]}/>)}
+            render={()=> (<EventShowPage event={this.props.events[0]} createVote={this.props.createVote} />)}
             />
          
 

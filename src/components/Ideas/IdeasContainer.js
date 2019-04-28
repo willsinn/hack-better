@@ -13,8 +13,7 @@ class IdeasContainer extends Component {
     }
 
     render() {
-        const ideas = this.state.ideas.map(idea => {return <IdeasCard key={idea.id} idea={idea}/>})
-        
+        const ideas = this.state.ideas.map(idea => {return <IdeasCard key={idea.id} idea={idea} createVote={this.props.createVote}/>})
         
         return (
             <div> 

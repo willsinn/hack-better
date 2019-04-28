@@ -7,7 +7,7 @@ class EventShowPage extends Component {
             <div>
                 <h1> Pitch Ideas Voting </h1>
                 <h2> {this.props.event.title} </h2>
-                <IdeasContainer />
+                <IdeasContainer createVote={this.props.createVote} />
             </div>
         );
     }
