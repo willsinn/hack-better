@@ -2,6 +2,82 @@
 @import "~react-bulma-components/dist/react-bulma-components.min.css";
 
 .profile-photo img {
-    height: 200px;
-    width: auto;
+  height: 200px;
+  width: auto;
+}
+.team-container {
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.team-card {
+  width: 610px;
+  height: 70px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+}
+.team-title {
+  width: 441px;
+  height: 22px;
+  font-family: SofiaPro;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  color: #444444;
+  text-align: left;
+}
+.team-name {
+  width: 179px;
+  height: 22px;
+  font-family: SofiaPro;
+  font-size: 17px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  color: #909090;
+  text-align: left;
+}
+.member-num {
+  display: flex;
+  justify-content: center;
+}
+.team-members {
+  width: 40px;
+  height: 22px;
+  font-family: SofiaPro;
+  font-size: 24px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #5d80ef;
+}
+.filter-button {
+  width: 85px;
+  height: 39px;
+  font-family: SofiaPro;
+  font-size: 15px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: #909090;
+}
+.sort-button {
+  width: 85px;
+  height: 40px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
 }
