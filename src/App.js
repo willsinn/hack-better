@@ -130,7 +130,7 @@ class App extends Component {
       }))
   };
 
-  createVote = (user_id, idea_id) => {
+  createVote = (idea_id) => {
     fetch("http://localhost:3000/api/v1/votes", {
       method: "POST",
       headers: {
@@ -138,14 +138,17 @@ class App extends Component {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        user_id,
+        user_id: this.state.currentUser.id,
         idea_id
       })
     })
       // .then(res => res.json())
       // .then(vote => {
-      //   let newArr = [...this.state.votes, vote];
-      //   this.setState({ votes: newArr });
+
+      //   let newArr = this.state.ideas.map(idea => idea.id === vote.idea_id)
+
+
+      //   this.setState({ ideas: newArr });
       // });
   }
 

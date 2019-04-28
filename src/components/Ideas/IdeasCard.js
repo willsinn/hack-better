@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 
 class IdeasCard extends Component {
+
+  state={
+    isClicked: false,
+    ideaVotes: this.props.idea.votes.length
+  }
+
+  handleClick = () => {
+    const {idea} = this.props
+    let ideaVotes = this.state.ideaVotes
+    if (!this.state.isClicked) {
+      this.props.createVote(idea.id) 
+      this.setState({isClicked: true, ideaVotes: ideaVotes+=1})}
+  }
+
   render() {
     const {idea} = this.props
     
@@ -16,6 +30,7 @@ class IdeasCard extends Component {
           <p>Solution: {idea.solution}</p>
           <i>Audience: {idea.audience}</i>
 
+            <span onClick={this.handleClick}>❤️</span><span>{this.state.ideaVotes}</span>
           <br/>
       </div>
     );
