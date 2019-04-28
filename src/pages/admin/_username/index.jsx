@@ -16,7 +16,7 @@ class ProfilePage extends Component {
 
   render() {
     const { username, createUser, users, currentUser } = this.props;
-
+    console.log(this.props)
 
     if (this._isMounted && users.length > 0 && !users.find(user => user.username === username)) {
       createUser(username);

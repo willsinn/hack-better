@@ -52,12 +52,29 @@
   border: solid 1px #979797;
 }
 
+<<<<<<< HEAD
+  .Rectangle_input {
+    width: 400px;
+    height: 40px;
+    border-radius: 4px;
+    border: solid 1px #979797;
+    text-align: left;
+    font-size: 1.0em;
+    font-family: SofiaPro;
+    padding: 4px;
+    margin-left: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+        
+
+=======
 .Rectangle-copy-2 {
   width: 400px;
   height: 40px;
   border-radius: 4px;
   border: solid 1px #979797;
 }
+>>>>>>> 0c4c2a90afc94bd96c0a6f7b1fc56068869c335b
 
 .Rectangle-Copy-3 {
   width: 400px;
@@ -242,6 +259,67 @@
   margin-left: 40%;
 }
 
+<<<<<<< HEAD
+  .submitButton {
+    padding: 7px;
+    margin-left: 275px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: SofiaPro;
+    background-color: #209cee;
+    border-radius: 5px;
+    color: white;
+  }
+
+  .Create-Your-Profile {
+      width: 176px;
+      height: 22px;
+      font-family: SofiaPro;
+      font-size: 20px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.1;
+      letter-spacing: normal;
+      color: #444444;
+  }
+
+  .Oval {
+      width: 100px;
+      height: 100px;
+  }
+
+  .profile-pic {
+        border-radius: 35px 35px 35px 35px
+  }
+
+  .profileWindow {
+      width: 611px;
+      height: 550px;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+      background-color: #ffffff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: 10%;
+      margin-left: -25%;
+  }
+
+
+
+    img .profile-photo{
+        position: relative;
+        height: 58px;
+        flex: center;
+        background-color: #e5e5e5;
+        border-radius: 25px 25px 25px 25px
+    }
+
+    .profile-button {
+        margin-left: 30px;
+    }
+=======
 .hack-event {
   width: 130px;
   height: 19px;
@@ -289,3 +367,4 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
 }
+>>>>>>> 0c4c2a90afc94bd96c0a6f7b1fc56068869c335b

@@ -5,16 +5,18 @@ class ProfileShowPage extends Component {
   render() {
     const { currentUser } = this.props;
     return (
-      <div className="profile-container">
+      <div className="profileWindow">
         <div className="profile-photo">
-          <img src="https://www.gooverseas.com/sites/default/files/styles/1014x/public/images/2018-03-11/Volunteer%20with%20Sea%20Turtles%20Hero.jpg?itok=6i_geFUq" alt="profile" />
+          <img className="img-size" src="http://foodbank.bradfrostweb.com/patternlab/v7/images/fpo_avatar.png" alt="profile" />
         </div>
+
         <div className="profile-info">
           <h3>{currentUser.full_name}</h3>
-          <p>Role: {currentUser.role_title}</p>
-          <p>Email: {currentUser.email}</p>
+          <p> {currentUser.email}</p>
+          <p> {currentUser.role_title}</p>
+          
         </div>
-        <Link to='/profileform'><button>Edit</button></Link>
+        <Link to='/profileform'><button className="profile">Create Your Profile</button></Link>
       </div>
     );
   }
