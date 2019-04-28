@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles';
-import { TextField } from '@material-ui/core';
-
+import { FormControl ,TextField } from '@material-ui/core';
+import {withRouter, connect} from 'react-router-dom';
 
 class ProfileForm extends React.Component {
   //username and team_id should be pre-filled
@@ -23,34 +23,32 @@ class ProfileForm extends React.Component {
     this.props.updateUser(this.state);
 
     this.setState({
-      id: this.props.currentUser.id,
-      username: this.props.currentUser.username,
       full_name: "",
       photo: "",
       role: "",
       email: ""
     });
+
+    setTimeout(() => this.props.history.push('/profile'), 1000)
+
   };
 
   render() {
-    console.log(this.props.currentUser)
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <form className={classes.container} noValidate autoComplete="off" onSubmit={this.submitHandler}>
-            <label>Full Name</label>
-            <TextField
-              id="outlined-name"
-              label="Name"
-              className={classes.textField}
-              value={this.state.full_name}
-              onChange={this.handleChange('full_name')}
-              margin="normal"
-              variant="outlined"
-            />
+        <form className={classes.container} noValidate autoComplete="off" onSubmit={(e)=>this.submitHandler(e)}>
 
-          <li>
+            <label>Full Name</label>
+            <input
+              type="text"
+              placeholder="Full Name"
+              name="full_name"
+              value={this.state.value}
+              onChange={this.changeHandler}
+            />
             <label>Email</label>
+
             <input
               type="text"
               placeholder="Email"
@@ -58,9 +56,9 @@ class ProfileForm extends React.Component {
               value={this.state.value}
               onChange={this.changeHandler}
             />
-          </li>
 
-          <li>
+
+
             <label>Photo of yourself</label>
             <input
               type="text"
@@ -69,9 +67,8 @@ class ProfileForm extends React.Component {
               value={this.state.value}
               onChange={this.changeHandler}
             />
-          </li>
 
-          <li>
+
             <label>Your job/role</label>
             <input
               type="text"
@@ -80,11 +77,8 @@ class ProfileForm extends React.Component {
               value={this.state.value}
               onChange={this.changeHandler}
             />
-          </li>
-          <li>
           <input type="submit" value="Submit" />
-          </li>
-        </form>
+          </form>
       </div>
     );
   }
@@ -92,14 +86,22 @@ class ProfileForm extends React.Component {
 
 const styles = theme => ({
   root: {
-    backgroundColor:'gray',
     display: 'flex',
     justifyContent: 'center',
   },
-
   container: {
-    display: 'flex'
-  }
+    display: 'flex',
+    flexDirection: 'column',
+    width: '40%',
 
-});
-export default withStyles(styles, {})(ProfileForm);
+  },
+  input: {
+    width: '100%',
+    padding: '12px 20px',
+    margin: '8px 0',
+    boxSizing: 'border-box',
+    border: '2px solid',
+    borderRadius: '8px',
+  }
+ });
+export default withStyles(styles)((withRouter(ProfileForm)));

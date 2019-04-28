@@ -6,12 +6,14 @@ import { isUserSignedIn, UserSession, loadUserData } from "blockstack";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import Routes from "./pages/Routes";
+import {withRouter} from 'react-router-dom'
 
 class App extends Component {
   state = {
     userSession: new UserSession({ appConfig }),
     userData: {},
     users: [],
+    ideas: [],
     currentUser: {}
   };
 
@@ -37,6 +39,7 @@ class App extends Component {
     }
 
     this.getUsers();
+    this.getIdeas();
   };
 
   getUsers = () => {
@@ -69,26 +72,61 @@ class App extends Component {
       });
   };
 
+
+    getIdeas = () => {
+      fetch("http://localhost:3000/api/v1/ideas")
+      .then(res => res.json())
+      .then(ideas => {
+        this.setState(ideas)
+      })
+    }
+
+  createIdea = (idea) => {
+      fetch("http://localhost:3000/api/v1/ideas", {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+          Accept: "application/json"
+        },
+        body:JSON.stringify({
+          title: idea.title,
+          topic: idea.topic,
+          problem: idea.problem,
+          solution: idea.solution,
+          audience: idea.audience,
+        })
+      })
+      .then(res => res.json())
+      .then(idea => {
+        let newArr = [...this.state.ideas, idea]
+        this.setState({ideas: newArr})
+      })
+  }
+
   updateUser = user => {
-    fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+    let id = this.state.currentUser.id
+    let username = this.state.currentUser.username
+    fetch(`http://localhost:3000/api/v1/users/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
+        username: username,
         full_name: user.full_name,
         photo_url: user.photo,
         role_title: user.role,
-        email: user.email
+        email: user.email,
+        team_id: null
       })
-    }).then(console.log)
-    
+    }).then(res=>res.json())
+    .then(user => this.setState({currentUser: user}))
   };
+
 
   render() {
     const { userSession, userData, users, currentUser } = this.state;
-    console.log(currentUser)
     return (
       <div className="App">
         <NavBar userSession={userSession} />
@@ -99,6 +137,7 @@ class App extends Component {
               userData={userData}
               users={users}
               createUser={this.createUser}
+              createIdea={this.createIdea}
               updateUser={this.updateUser}
               currentUser={currentUser}
             />
@@ -111,4 +150,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
