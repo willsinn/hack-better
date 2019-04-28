@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import UserProvider from "../components/User/UserProvider";
 import Loader from "../components/Loader";
 import AdminUsernameRoute from "./admin/_username/routes";
+import IdeaForm from "../forms/IdeaForm";
 import ProfileShowPage from './admin/_username/ProfileShowPage'
 import ProfileForm from './admin/_username/ProfileForm'
 
@@ -26,6 +27,7 @@ class Routes extends Component {
     }
     return (
       <UserProvider userSession={userSession}>
+      <div>
         <Switch>
           <Route
             path="/admin/:username"
@@ -38,7 +40,13 @@ class Routes extends Component {
                 updateUser={updateUser}
                 currentUser={currentUser}
               />
+
             )}
+          />
+          
+          <Route
+            path="/submitidea"
+            render={() => <IdeaForm createIdea={this.props.createIdea} /> }
           />
           <Route
             path="/profileform"
@@ -54,6 +62,7 @@ class Routes extends Component {
             render={() => <Redirect to={`/admin/${user.username}`} />}
           />
         </Switch>
+        </div>
       </UserProvider>
     );
   }

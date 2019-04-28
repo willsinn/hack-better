@@ -13,6 +13,7 @@ class App extends Component {
     userSession: new UserSession({ appConfig }),
     userData: {},
     users: [],
+    ideas: [],
     currentUser: {}
   };
 
@@ -38,6 +39,7 @@ class App extends Component {
     }
 
     this.getUsers();
+    this.getIdeas();
   };
 
   getUsers = () => {
@@ -70,6 +72,43 @@ class App extends Component {
       });
   };
 
+
+    getIdeas = () => {
+      fetch("http://localhost:3000/api/v1/ideas")
+      .then(res => res.json())
+      .then(ideas => {
+        this.setState(ideas)
+      })
+    }
+
+  createIdea = (idea) => {
+      fetch("http://localhost:3000/api/v1/ideas", {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+          Accept: "application/json"
+        },
+        body:JSON.stringify({
+          title: idea.title,
+          topic: idea.topic,
+          problem: idea.problem,
+          solution: idea.solution,
+          audience: idea.audience,
+        })
+      })
+      .then(res => res.json())
+      .then(idea => {
+        let newArr = [...this.state.ideas, idea]
+        this.setState({ideas: newArr})
+      })
+  }
+
+
+
+
+  render() {
+    const { userSession, userData, users } = this.state;
+
   updateUser = user => {
     let id = this.state.currentUser.id
     let username = this.state.currentUser.username
@@ -91,6 +130,7 @@ class App extends Component {
     .then(user => this.setState({currentUser: user}))
   };
 
+
   render() {
     const { userSession, userData, users, currentUser } = this.state;
     return (
@@ -103,6 +143,7 @@ class App extends Component {
               userData={userData}
               users={users}
               createUser={this.createUser}
+              createIdea={this.createIdea}
               updateUser={this.updateUser}
               currentUser={currentUser}
             />
