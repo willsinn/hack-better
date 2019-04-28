@@ -4,8 +4,8 @@ import { Container } from "react-bulma-components";
 import { appConfig } from "./utils/constants";
 
 import { isUserSignedIn, UserSession, loadUserData } from "blockstack";
-import Login from "./components/Login"; 
-import NavBar from "./components/NavBar"; 
+import Login from "./components/Login";
+import NavBar from "./components/NavBar";
 import Routes from "./pages/Routes";
 import {withRouter} from 'react-router-dom'
 import events from "./hacky";
@@ -49,11 +49,14 @@ class App extends Component {
     fetch("http://localhost:3000/api/v1/users")
       .then(res => res.json())
       .then(users => {
+
+
         const userData = this.state.userSession.loadUserData();
-        let currentUser = users.find(
+        let currentUser = users.sort((a,b)=>(b.id - a.id)).find(
           user => user.username === userData.username
         );
         this.setState({ users, currentUser });
+
       });
   };
 
@@ -131,8 +134,8 @@ class App extends Component {
 
 
   render() {
-    const { userSession, userData, users, currentUser } = this.state;
-    console.log(this.state.ideas)
+
+    const { userSession, userData, users, currentUser, events } = this.state;
     return (
       <div className="App">
         <NavBar userSession={userSession} />
@@ -146,8 +149,7 @@ class App extends Component {
               createIdea={this.createIdea}
               updateUser={this.updateUser}
               currentUser={currentUser}
-
-              events={this.state.events}
+              events={events}
             />
           ) : (
             <Login userSession={userSession} />

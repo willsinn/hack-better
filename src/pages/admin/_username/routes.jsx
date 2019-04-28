@@ -13,7 +13,7 @@ class AdminUsernameRoute extends Component {
   render() {
     const { username } = this.props.match.params;
     const { createUser, users, updateUser, currentUser } = this.props;
-
+console.log(users)
     return (
       <Switch>
         <Route
