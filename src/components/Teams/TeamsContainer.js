@@ -14,7 +14,9 @@ class TeamsContainer extends Component {
 
   render() {
     const teams = this.state.teams.map(team => {
-      return <TeamCard key={team.id} team={team} />;
+      return (
+        <TeamCard key={team.id} team={team} joinTeam={this.props.joinTeam} />
+      );
     });
     return <div>{teams}</div>;
   }

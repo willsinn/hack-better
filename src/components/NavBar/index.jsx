@@ -22,7 +22,7 @@ class NavBar extends Component {
     this.setState({ open: !this.state.open });
   };
 
-  render() {  
+  render() {
     const { userSession } = this.props;
     const { open } = this.state;
     const isUserSignedIn = userSession.isUserSignedIn();
@@ -41,14 +41,18 @@ class NavBar extends Component {
           <Navbar.Container position="end">
             {isUserSignedIn && (
               <React.Fragment>
-                <Link to="/profile"><Navbar.Item>
-                  My Profile
-                </Navbar.Item></Link>
-                
-                <Link to="/events"><Navbar.Item>
-                    Events  
-                </Navbar.Item></Link>
-                
+                <Link to="/profile">
+                  <Navbar.Item>My Profile</Navbar.Item>
+                </Link>
+
+                <Link to="/events">
+                  <Navbar.Item>Events</Navbar.Item>
+                </Link>
+
+                <Link to="/eventshow">
+                  <Navbar.Item>Pitches</Navbar.Item>
+                </Link>
+
                 <Navbar.Item onClick={this.handleSignOut}>Sign Out</Navbar.Item>
               </React.Fragment>
             )}

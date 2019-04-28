@@ -152,6 +152,22 @@ class App extends Component {
     // });
   };
 
+  joinTeam = team_id => {
+    let id = this.state.currentUser.id;
+    fetch(`http://localhost:3000/api/v1/users/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        team_id
+      })
+    })
+      .then(res => res.json())
+      .then(user => this.setState({ currentUser: user }));
+  };
+
   render() {
     const { userSession, userData, users, currentUser, events } = this.state;
     return (
@@ -169,6 +185,7 @@ class App extends Component {
               currentUser={currentUser}
               events={events}
               createVote={this.createVote}
+              joinTeam={this.joinTeam}
             />
           ) : (
             <Login userSession={userSession} />

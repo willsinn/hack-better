@@ -7,33 +7,31 @@ class TeamCard extends Component {
 
   handleClick = () => {
     const { team } = this.props;
-    let ideaVotes = this.state.ideaVotes;
+    // let ideaVotes = this.state.ideaVotes;
     if (!this.state.isClicked) {
-      // this.props.createVote(idea.id);
-      this.setState({ isClicked: true, ideaVotes: (ideaVotes += 1) });
+      this.props.joinTeam(team.id);
+      this.setState({ isClicked: true });
     }
   };
 
   render() {
-    return <p>Hi</p>;
+    const { team } = this.props;
+
+    return (
+      <div>
+        <strong>{team.pitch_title}</strong>
+        <i>{team.pitch_topic}</i>
+        <h5> by {team.full_name}</h5>
+
+        <p>Problem: {team.pitch_problem}</p>
+        <p>Solution: {team.pitch_solution}</p>
+        <i>Audience: {team.pitch_audience}</i>
+
+        <button onClick={this.handleClick}>Join Team</button>
+        <br />
+      </div>
+    );
   }
 }
 
 export default TeamCard;
-// const { idea } = this.props;
-//
-// console.log(this.props.createVote);
-// return (
-//   <div>
-//     <strong>{idea.title}</strong>
-//     <i>{idea.topic}</i>
-//     <h5> by {idea.full_name}</h5>
-//
-//     <p>Problem: {idea.problem}</p>
-//     <p>Solution: {idea.solution}</p>
-//     <i>Audience: {idea.audience}</i>
-//
-//     <span onClick={this.handleClick}>❤️</span>
-//     <span>{this.state.ideaVotes}</span>
-//     <br />
-//   </div>
