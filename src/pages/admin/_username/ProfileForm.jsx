@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom'
 class ProfileForm extends React.Component {
   //username and team_id should be pre-filled
   state = {
+    username:"",
     full_name: "",
     photo: "",
     role: "",
@@ -19,6 +20,7 @@ class ProfileForm extends React.Component {
     this.props.updateUser(this.state);
 
     this.setState({
+      username: "",
       full_name: "",
       photo: "",
       role: "",
@@ -31,42 +33,62 @@ class ProfileForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="modalWindow">
+
+        <h2 className="What-Is-Your-Idea"> Create Your Profile </h2>
+        
+        <div className="inputs">
         <form onSubmit={this.submitHandler}>
-          <label>Full Name</label>
+
           <input
+            className="Rectangle_input"
             type="text"
-            placeholder="Full name"
+            placeholder="User name"
+            name="username"
+            value={this.state.value}
+            onChange={this.changeHandler}
+          />
+  
+          <input
+            className="Rectangle_input"
+            type="text"
+            placeholder="Full Name"
             name="full_name"
             value={this.state.value}
             onChange={this.changeHandler}
           />
-          <label>Email</label>
+  
           <input
+            className="Rectangle_input"
             type="text"
             placeholder="Email"
             name="email"
             value={this.state.value}
             onChange={this.changeHandler}
           />
-          <label>Photo of yourself</label>
+       
           <input
+            className="Rectangle_input"
             type="text"
             placeholder="Your photo"
             name="photo"
             value={this.state.value}
             onChange={this.changeHandler}
           />
-          <label>Your job/role</label>
+
           <input
+            className="Rectangle_input"
             type="text"
-            placeholder="role"
+            placeholder="Role"
             name="role"
             value={this.state.value}
             onChange={this.changeHandler}
           />
-          <input type="submit" value="Submit" />
+          <br />
+            <input className="submitButton" type="submit" value="Submit" />
+    
         </form>
+        </div>
       </div>
     );
   }
