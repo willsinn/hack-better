@@ -7,12 +7,14 @@ import { isUserSignedIn, UserSession, loadUserData } from "blockstack";
 import Login from "./components/Login"; 
 import NavBar from "./components/NavBar"; 
 import Routes from "./pages/Routes";
+import events from "./hacky";
 
 class App extends Component {
   state = {
     userSession: new UserSession({ appConfig }),
     userData: {},
-    users: []
+    users: [],
+    events
   };
 
   componentDidMount = async () => {
@@ -64,6 +66,8 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state);
+    
     const { userSession, userData, users } = this.state;
 
     return (
@@ -76,6 +80,8 @@ class App extends Component {
               userData={userData}
               users={users}
               createUser={this.createUser}
+
+              events={this.state.events}
             />
           ) : (
             <Login userSession={userSession} />

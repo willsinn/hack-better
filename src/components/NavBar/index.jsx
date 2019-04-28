@@ -22,7 +22,7 @@ class NavBar extends Component {
     this.setState({ open: !this.state.open });
   };
 
-  render() {
+  render() {  
     const { userSession } = this.props;
     const { open } = this.state;
     const isUserSignedIn = userSession.isUserSignedIn();

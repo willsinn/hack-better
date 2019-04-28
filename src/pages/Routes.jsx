@@ -17,6 +17,7 @@ class Routes extends Component {
   }
 
   render() {
+    const { events } = this.props
     const { user } = this.state;
     const { userSession, userData, users, createUser } = this.props;
 
@@ -46,7 +47,7 @@ class Routes extends Component {
           <Route
             path={`/events`}
             render={() => (
-              <EventsContainer
+              <EventsContainer events={events}
               />
             )}
           />
