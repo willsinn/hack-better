@@ -50,13 +50,11 @@ class App extends Component {
       .then(res => res.json())
       .then(users => {
     
-    
         const userData = this.state.userSession.loadUserData();
-        let currentUser = users.sort((a,b)=>(b.id - a.id)).find(
+        let currentUser = users.find(
           user => user.username === userData.username
         );
         this.setState({ users, currentUser });
-        
       });
   };
 
@@ -131,6 +129,25 @@ class App extends Component {
         currentUser: user
       }))
   };
+
+  createVote = (user_id, idea_id) => {
+    fetch("http://localhost:3000/api/v1/votes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        user_id,
+        idea_id
+      })
+    })
+      // .then(res => res.json())
+      // .then(vote => {
+      //   let newArr = [...this.state.votes, vote];
+      //   this.setState({ votes: newArr });
+      // });
+  }
 
 
   render() {
