@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import ReactModal from 'react-modal';
-import Modal from '../modal/modal';
 
 class IdeaForm extends Component {
   state = {

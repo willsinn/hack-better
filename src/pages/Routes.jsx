@@ -7,6 +7,7 @@ import AdminUsernameRoute from "./admin/_username/routes";
 import IdeaForm from "../forms/IdeaForm";
 import ProfileShowPage from './admin/_username/ProfileShowPage'
 import ProfileForm from './admin/_username/ProfileForm'
+import EventsContainer from "./EventsContainer"
 
 class Routes extends Component {
   state = { user: {} };
@@ -19,6 +20,7 @@ class Routes extends Component {
   }
 
   render() {
+    const { events } = this.props
     const { user } = this.state;
     const { userSession, userData, users, createUser, updateUser, currentUser } = this.props;
 
@@ -43,6 +45,13 @@ class Routes extends Component {
 
             )}
           />
+           <Route
+            path={`/events/:event`}
+            render={() => (
+              <EventsContainer
+              />
+            )}
+          />
           
           <Route
             path="/submitidea"
@@ -52,6 +61,13 @@ class Routes extends Component {
             path="/profileform"
             render={()=><ProfileForm updateUser={updateUser} currentUser={currentUser} {...this.props} />}
             />
+             <Route
+            path={`/events`}
+            render={() => (
+              <EventsContainer events={events}
+              />
+            )}
+          />
           <Route
             path="/profile"
             render={()=><ProfileShowPage currentUser={currentUser} {...this.props} />}
@@ -60,7 +76,12 @@ class Routes extends Component {
             exact
             path="/"
             render={() => <Redirect to={`/admin/${user.username}`} />}
-          />
+            />
+         
+
+         
+   
+
         </Switch>
         </div>
       </UserProvider>

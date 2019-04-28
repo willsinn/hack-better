@@ -19,7 +19,6 @@ class ProfileForm extends React.Component {
 
   submitHandler = e => {
     e.preventDefault();
-    let user = this.state;
     this.props.updateUser(this.state);
 
     this.setState({
