@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Switch, Route } from "react-router-dom";
-import ProfilePage from "./";
+import ProfilePage from ".";
 
 class AdminUsernameRoute extends Component {
   static propTypes = {
