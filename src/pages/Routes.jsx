@@ -19,7 +19,7 @@ class Routes extends Component {
   render() {
     const { user } = this.state;
     const { userSession, userData, users, createUser } = this.props;
-
+  
     if (_.isEmpty(user)) {
       return <Loader />;
     }
@@ -42,6 +42,13 @@ class Routes extends Component {
               />
             )}
           />
+          <Route
+            path={`/events/:event`}
+            render={() => (
+              <EventsContainer
+              />
+            )}
+          />
 
           <Route
             path={`/events`}
@@ -50,6 +57,7 @@ class Routes extends Component {
               />
             )}
           />
+   
 
         </Switch>
       </UserProvider>
