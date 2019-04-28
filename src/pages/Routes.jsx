@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import UserProvider from "../components/User/UserProvider";
 import Loader from "../components/Loader";
 import AdminUsernameRoute from "./admin/_username/routes";
+import EventsContainer from "./EventsContainer"
 
 class Routes extends Component {
   state = { user: {} };
@@ -41,6 +42,15 @@ class Routes extends Component {
               />
             )}
           />
+
+          <Route
+            path={`/events`}
+            render={() => (
+              <EventsContainer
+              />
+            )}
+          />
+
         </Switch>
       </UserProvider>
     );

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Switch, Route } from "react-router-dom";
 import ProfilePage from "./";
+import EventsContainer from "../../EventsContainer";
+import Routes from "../../Routes";
 
 class AdminUsernameRoute extends Component {
   static propTypes = {
@@ -24,6 +26,11 @@ class AdminUsernameRoute extends Component {
             />
           )}
         />
+
+        {/* <Route
+          path= "/pitchideas"
+          component={EventsContainer}
+        /> */}
       </Switch>
     );
   }

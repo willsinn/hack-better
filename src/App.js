@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import "./stylesheets/main.scss";
 import { Container } from "react-bulma-components";
 import { appConfig } from "./utils/constants";
+
 import { isUserSignedIn, UserSession, loadUserData } from "blockstack";
-import Login from "./components/Login";
-import NavBar from "./components/NavBar";
+import Login from "./components/Login"; 
+import NavBar from "./components/NavBar"; 
 import Routes from "./pages/Routes";
 
 class App extends Component {
@@ -86,3 +87,4 @@ class App extends Component {
 }
 
 export default App;
+
