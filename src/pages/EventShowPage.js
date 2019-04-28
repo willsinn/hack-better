@@ -3,7 +3,6 @@ import IdeasContainer from "../components/Ideas/IdeasContainer";
 
 class EventShowPage extends Component {
     render(){
-        console.log(this.props);
         return(
             <div>
                 <h1> Pitch Ideas Voting </h1>
