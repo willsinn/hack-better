@@ -49,11 +49,14 @@ class App extends Component {
     fetch("http://localhost:3000/api/v1/users")
       .then(res => res.json())
       .then(users => {
+    
+    
         const userData = this.state.userSession.loadUserData();
-        let currentUser = users.find(
+        let currentUser = users.sort((a,b)=>(b.id - a.id)).find(
           user => user.username === userData.username
         );
         this.setState({ users, currentUser });
+        
       });
   };
 
@@ -131,7 +134,11 @@ class App extends Component {
 
 
   render() {
+<<<<<<< HEAD
     const { userSession, userData, users, currentUser } = this.state;
+=======
+    const { userSession, userData, users, currentUser, events } = this.state;
+>>>>>>> e524d6924e4368059e929fed2db9f14e4dded4ff
     return (
       <div className="App">
         <NavBar userSession={userSession} />
@@ -145,8 +152,7 @@ class App extends Component {
               createIdea={this.createIdea}
               updateUser={this.updateUser}
               currentUser={currentUser}
-
-              events={this.state.events}
+              events={events}
             />
           ) : (
             <Login userSession={userSession} />
