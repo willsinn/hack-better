@@ -40,9 +40,13 @@ class App extends Component {
         userData
       });
     }
-
-    this.getUsers();
-    this.getIdeas();
+    setInterval = () => (
+      function() {
+        this.getUsers();
+        this.getIdeas();
+      },
+      3000
+    );
   };
 
   getUsers() {

@@ -22,7 +22,10 @@ class EventShowPage extends Component {
             changePhase={this.changePhase}
           />
         ) : (
-          <TeamsContainer joinTeam={this.props.joinTeam} />
+          <TeamsContainer
+            joinTeam={this.props.joinTeam}
+            currentUser={this.props.currentUser}
+          />
         )}
       </div>
     );

@@ -27,7 +27,15 @@ class TeamCard extends Component {
         <p>Solution: {team.pitch_solution}</p>
         <i>Audience: {team.pitch_audience}</i>
 
-        <button onClick={this.handleClick}>Join Team</button>
+        {this.props.currentUser.team_id === team.id ? (
+          <p>This is your team</p>
+        ) : team.users.length < 8 ? (
+          <button onClick={this.handleClick}>Join Team</button>
+        ) : (
+          <p>Team is full</p>
+        )}
+
+        {team.users.length < 8 ? <p>{team.users.length} / 8</p> : 8 / 8}
         <br />
       </div>
     );

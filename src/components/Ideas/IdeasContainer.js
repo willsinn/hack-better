@@ -51,7 +51,7 @@ class IdeasContainer extends Component {
       });
     return (
       <div>
-        <p onClick={this.createTeams}>End Voting</p>
+        <button onClick={this.createTeams}>End Voting</button>
         {ideas}
       </div>
     );
