@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import IdeasContainer from "../components/Ideas/IdeasContainer";
-import TeamsContainer from "../components/Teams/TeamsContainer";
 
 class EventShowPage extends Component {
   state = {

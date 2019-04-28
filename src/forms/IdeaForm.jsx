@@ -28,16 +28,20 @@ submitHandler = (e) => {
 */
   render() {
     return (
-      <div> 
+      <div className="modalWindow"> 
+      <h2 className="What-Is-Your-Idea"> What is you're Idea?</h2>
+       <div className="inputs">
         <form onSubmit={this.submitHandler}>
-          <label>
-            Title of Idea
-          </label>
-          <input type="text" placeholder="Title" name='title' value={this.state.value} onChange={this.changeHandler}/>
-          <label>
+        <textarea className="Rectangle_input" type="text" placeholder="Idea Name" name='title' value={this.state.value} onChange={this.changeHandler}/>
+          <textarea className="Rectangle_input" placeholder="Problem" name='problem' value={this.state.value} onChange={this.changeHandler}/>
+          <textarea className="Rectangle_input" placeholder="Solution" name='solution' value={this.state.value} onChange={this.changeHandler}/>
+          <textarea className="Rectangle_input" type="text" placeholder="Target Audience" name='audience' value={this.state.value} onChange={this.changeHandler}/>
+<br />
+
+{/*<label>
             Category
-          </label>
-          <select name="topic" value={this.state.value} onChange={this.changeHandler} >
+</label>*/}
+          <select className="category" name="topic" value={this.state.value} onChange={this.changeHandler} >
             <option value>
               Select Category
             </option>
@@ -54,25 +58,10 @@ submitHandler = (e) => {
               Data and Privacy
             </option>
           </select>
-
-          <label>
-            Problem
-          </label>
-          <textarea placeholder="Problem" name='problem' value={this.state.value} onChange={this.changeHandler}/>
-
-          <label>
-            Solution
-          </label>
-          <textarea placeholder="Solution" name='solution' value={this.state.value} onChange={this.changeHandler}/>
-
-          <label>
-          Who do you plan to target?
-          </label>
-          <input type="text" placeholder="Target Audience" name='audience' value={this.state.value} onChange={this.changeHandler}/>
-
-        <input type="submit" value="Submit" />
+          <br />
+        <input className="submitButton" type="submit" value="Submit" />
         </form>
-
+</div>
       </div>
       // <div className="app">
       //   <button className="modal_opener" onClick={this.toggleModal}>
