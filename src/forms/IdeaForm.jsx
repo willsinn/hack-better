@@ -17,7 +17,7 @@ changeHandler = (e) => {
 }
 submitHandler = (e) => {
   e.preventDefault()
-  console.log(this.state)
+  this.props.createIdea(this.state)
 }
 /*
 

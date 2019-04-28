@@ -11,7 +11,8 @@ class App extends Component {
   state = {
     userSession: new UserSession({ appConfig }),
     userData: {},
-    users: []
+    users: [],
+    ideas: [],
   };
 
   componentDidMount = async () => {
@@ -36,6 +37,7 @@ class App extends Component {
     }
 
     this.getUsers();
+    this.getIdeas();
   };
 
   getUsers = () => {
@@ -62,6 +64,39 @@ class App extends Component {
       });
   };
 
+    getIdeas = () => {
+      fetch("http://localhost:3000/api/v1/ideas")
+      .then(res => res.json())
+      .then(ideas => {
+        this.setState(ideas)
+      })
+    }
+
+  createIdea = (idea) => {
+      fetch("http://localhost:3000/api/v1/ideas", {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+          Accept: "application/json"
+        },
+        body:JSON.stringify({
+          title: idea.title,
+          topic: idea.topic,
+          problem: idea.problem,
+          solution: idea.solution,
+          audience: idea.audience,
+        })
+      })
+      .then(res => res.json())
+      .then(idea => {
+        let newArr = [...this.state.ideas, idea]
+        this.setState({ideas: newArr})
+      })
+  }
+
+
+
+
   render() {
     const { userSession, userData, users } = this.state;
 
@@ -75,6 +110,7 @@ class App extends Component {
               userData={userData}
               users={users}
               createUser={this.createUser}
+              createIdea={this.createIdea}
             />
           ) : (
             <Login userSession={userSession} />

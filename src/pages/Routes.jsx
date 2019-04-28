@@ -47,7 +47,7 @@ class Routes extends Component {
           
           <Route
             path="/submitidea"
-            render={() => <IdeaForm/> }
+            render={() => <IdeaForm createIdea={this.props.createIdea} /> }
           />
           
         </Switch>
