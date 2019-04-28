@@ -2,38 +2,57 @@
 @import "~react-bulma-components/dist/react-bulma-components.min.css";
 
 .profile-photo img {
-    height: 200px;
-    width: auto;
+  height: 200px;
+  width: auto;
 }
 .modalWindow {
-    width: 611px;
-    height: 417px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
-    background-color: #ffffff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: 11%;
-    margin-left: -25%;
-  }
+  width: 611px;
+  height: 417px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 11%;
+  margin-left: -25%;
+}
 
-  .What-Is-Your-Idea {
-    width: 100%;
-    height: 22px;
-    font-family: Sofia-Pro;
-    font-size: 20px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.1;
-    letter-spacing: normal;
-    color: #444444;
-    text-align: center;
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
+.What-Is-Your-Idea {
+  width: 100%;
+  height: 22px;
+  font-family: Sofia-Pro;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  color: #444444;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
 
+.Rectangle_input {
+  width: 400px;
+  height: 40px;
+  border-radius: 4px;
+  border: solid 1px #979797;
+  text-align: left;
+  font-size: 1.5em;
+  padding: 4px;
+  margin-left: 100px;
+}
+
+.Rectangle-Copy {
+  width: 400px;
+  height: 40px;
+  border-radius: 4px;
+  border: solid 1px #979797;
+}
+
+<<<<<<< HEAD
   .Rectangle_input {
     width: 400px;
     height: 40px;
@@ -48,37 +67,199 @@
     margin-bottom: 10px;
         
 
+=======
+.Rectangle-copy-2 {
+  width: 400px;
+  height: 40px;
+  border-radius: 4px;
+  border: solid 1px #979797;
+}
+>>>>>>> 0c4c2a90afc94bd96c0a6f7b1fc56068869c335b
 
-  }
+.Rectangle-Copy-3 {
+  width: 400px;
+  height: 40px;
+  border-radius: 4px;
+  border: solid 1px #979797;
+}
 
-  .Rectangle-Copy {
-    width: 400px;
-    height: 40px;
-    border-radius: 4px;
-    border: solid 1px #979797;
-    
-  }
+.category {
+  padding: 4px;
+  margin-left: 250px;
+}
 
-  .Rectangle-copy-2{
-    width: 400px;
-    height: 40px;
-    border-radius: 4px;
-    border: solid 1px #979797;
-    
-  }
+.submitButton {
+  padding: 7px;
+  margin-left: 275px;
+  margin-top: 50px;
+  font-size: 20px;
+  background-color: #209cee;
+  border-radius: 5px;
+  color: white;
+}
 
-  .Rectangle-Copy-3{
-    width: 400px;
-    height: 40px;
-    border-radius: 4px;
-    border: solid 1px #979797;
-  }
+.idea-container {
+  display: grid;
+  grid-column-start: 2;
+}
+.idea-card-info {
+  width: 610px;
+  height: 337px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  padding-top: 13px;
+  padding-left: 85px;
+  margin-bottom: 15px;
+}
+.idea-card-info h5 {
+  width: 179px;
+  height: 22px;
+  font-size: 17px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  color: #909090;
+  margin-bottom: 15px;
+}
+.idea-card-info strong {
+  width: 441px;
+  height: 22px;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  color: #444444;
+}
+.idea-card-info p:nth-child(odd) {
+  width: 179px;
+  height: 22px;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: 0.4px;
+  color: #98a5ce;
+  margin-bottom: 5px;
+}
+.idea-card-info p:nth-child(even) {
+  width: 278px;
+  height: 22px;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  color: #444444;
+  margin-bottom: 15px;
+}
+.category-tag {
+  width: 169px;
+  height: 22px;
+  border-radius: 13px;
+  border: solid 1px #5d80ef;
+  background-color: #ffffff;
+  display: flex;
+}
+.category-tag h3 {
+  width: 132px;
+  height: 14px;
+  font-size: 15px;
+  height: 200px;
+  width: auto;
+}
+.team-container {
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.team-card {
+  width: 610px;
+  height: 70px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+  margin: 8px;
+}
+.team-title {
+  width: 441px;
+  height: 22px;
+  font-family: SofiaPro;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  color: #444444;
+  text-align: left;
+}
+.team-name {
+  width: 179px;
+  height: 22px;
+  font-family: SofiaPro;
+  font-size: 17px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  color: #909090;
+  text-align: left;
+}
+.member-num {
+  display: flex;
+  justify-content: center;
+}
+.team-members {
+  width: 40px;
+  height: 22px;
+  font-family: SofiaPro;
+  font-size: 24px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: #5d80ef;
+  padding-left: 15px;
+}
+.category-icon {
+  width: 11px;
+  height: 11px;
+  background-color: #5d80ef;
+  margin-top: 4px;
+  margin-left: 10px;
+}
+.ideas-container {
+  display: grid;
+  grid-template-columns: repeat(3, 4fr);
+}
 
-  .category {
-    padding: 4px;
-    margin-left: 250px;
-  }
+.voting-title {
+  width: 235px;
+  height: 26px;
+  font-size: 28px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #5d80ef;
+  margin-bottom: 15px;
+  margin-left: 40%;
+}
 
+<<<<<<< HEAD
   .submitButton {
     padding: 7px;
     margin-left: 275px;
@@ -138,3 +319,52 @@
     .profile-button {
         margin-left: 30px;
     }
+=======
+.hack-event {
+  width: 130px;
+  height: 19px;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #afbce5;
+  margin-bottom: 30px;
+  margin-left: 45%;
+}
+.navbar-menu,
+.navbar-item {
+  background-color: #5d80ef;
+}
+.navbar-menu {
+  display: flex;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+//   letter-spacing: normal;
+//   color: #5d80ef;
+//   position: relative;
+//   left: 250px;
+//   bottom: 30px;
+// }
+.filter-button {
+  width: 85px;
+  height: 39px;
+  font-family: SofiaPro;
+  font-size: 15px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: #909090;
+}
+.sort-button {
+  width: 85px;
+  height: 40px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+>>>>>>> 0c4c2a90afc94bd96c0a6f7b1fc56068869c335b

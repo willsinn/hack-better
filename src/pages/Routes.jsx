@@ -76,6 +76,7 @@ class Routes extends Component {
                   event={this.props.events[0]}
                   createVote={this.props.createVote}
                   joinTeam={this.props.joinTeam}
+                  currentUser={this.props.currentUser}
                 />
               )}
             />

@@ -16,18 +16,26 @@ class TeamCard extends Component {
 
   render() {
     const { team } = this.props;
-
+    console.log(team);
     return (
-      <div>
-        <strong>{team.pitch_title}</strong>
-        <i>{team.pitch_topic}</i>
-        <h5> by {team.full_name}</h5>
+      <div className="team-container">
+        <div className="team-card" onClick={this.handleClick}>
+          <h3 className="team-title">{team.pitch_title}</h3>
 
-        <p>Problem: {team.pitch_problem}</p>
-        <p>Solution: {team.pitch_solution}</p>
-        <i>Audience: {team.pitch_audience}</i>
+          <h5 className="team-name"> by {team.team_name}</h5>
 
-        <button onClick={this.handleClick}>Join Team</button>
+          <span className="team-members">5/8</span>
+        </div>
+
+        {this.props.currentUser.team_id === team.id ? (
+          <p>This is your team</p>
+        ) : team.users.length < 8 ? (
+          <button onClick={this.handleClick}>Join Team</button>
+        ) : (
+          <p>Team is full</p>
+        )}
+
+        {team.users.length < 8 ? <p>{team.users.length} / 8</p> : 8 / 8}
         <br />
       </div>
     );
