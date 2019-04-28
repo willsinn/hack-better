@@ -7,7 +7,6 @@ class EventsContainer extends Component {
             return <EventsCard key={event.id} title={event.title} image={event.image} date={event.date}/>
         })
 
-        console.log(this.props.events)
         return(
             <div>{hackEvents}</div>
         );
