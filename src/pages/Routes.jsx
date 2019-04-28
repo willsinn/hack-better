@@ -62,6 +62,13 @@ class Routes extends Component {
             exact
             path="/"
             render={() => <Redirect to={`/admin/${user.username}`} />}
+            />
+          <Route
+            path={`/events/:event`}
+            render={() => (
+              <EventsContainer
+              />
+            )}
           />
 
           <Route
@@ -71,6 +78,7 @@ class Routes extends Component {
               />
             )}
           />
+   
 
         </Switch>
         </div>
