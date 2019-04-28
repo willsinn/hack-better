@@ -4,6 +4,8 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import UserProvider from "../components/User/UserProvider";
 import Loader from "../components/Loader";
 import AdminUsernameRoute from "./admin/_username/routes";
+import ProfileShowPage from './admin/_username/ProfileShowPage'
+import ProfileForm from './admin/_username/ProfileForm'
 
 class Routes extends Component {
   state = { user: {} };
@@ -17,7 +19,7 @@ class Routes extends Component {
 
   render() {
     const { user } = this.state;
-    const { userSession, userData, users, createUser } = this.props;
+    const { userSession, userData, users, createUser, updateUser, currentUser } = this.props;
 
     if (_.isEmpty(user)) {
       return <Loader />;
@@ -38,9 +40,19 @@ class Routes extends Component {
                 userData={userData}
                 users={users}
                 createUser={createUser}
+                updateUser={updateUser}
+                currentUser={currentUser}
               />
             )}
           />
+          <Route
+            path="/profile"
+            render={()=><ProfileShowPage currentUser={currentUser}/>}
+            />
+          <Route
+            path="/profileform"
+            render={()=><ProfileForm updateUser={updateUser} currentUser={currentUser}/>}
+            />
         </Switch>
       </UserProvider>
     );

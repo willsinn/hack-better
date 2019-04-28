@@ -11,7 +11,8 @@ class App extends Component {
   state = {
     userSession: new UserSession({ appConfig }),
     userData: {},
-    users: []
+    users: [],
+    currentUser: {}
   };
 
   componentDidMount = async () => {
@@ -41,7 +42,13 @@ class App extends Component {
   getUsers = () => {
     fetch("http://localhost:3000/api/v1/users")
       .then(res => res.json())
-      .then(users => this.setState({ users }));
+      .then(users => {
+        const userData = this.state.userSession.loadUserData();
+        let currentUser = users.find(
+          user => user.username === userData.username
+        );
+        this.setState({ users, currentUser });
+      });
   };
 
   createUser = username => {
@@ -58,13 +65,30 @@ class App extends Component {
       .then(res => res.json())
       .then(user => {
         let newArr = [...this.state.users, user];
-        this.setState({ users: newArr });
+        this.setState({ users: newArr, currentUser: user });
       });
   };
 
-  render() {
-    const { userSession, userData, users } = this.state;
+  updateUser = user => {
+    fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        full_name: user.full_name,
+        photo_url: user.photo,
+        role_title: user.role,
+        email: user.email
+      })
+    }).then(console.log)
+    
+  };
 
+  render() {
+    const { userSession, userData, users, currentUser } = this.state;
+    console.log(currentUser)
     return (
       <div className="App">
         <NavBar userSession={userSession} />
@@ -75,6 +99,8 @@ class App extends Component {
               userData={userData}
               users={users}
               createUser={this.createUser}
+              updateUser={this.updateUser}
+              currentUser={currentUser}
             />
           ) : (
             <Login userSession={userSession} />

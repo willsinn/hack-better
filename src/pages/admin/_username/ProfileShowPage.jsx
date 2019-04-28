@@ -1,23 +1,24 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 
-class ProfilePage extends Component {
-  
+class ProfileShowPage extends Component {
   render() {
-    const { full_name, photo, role, email } = this.props;
-
+    const { currentUser } = this.props;
+    console.log(this.props.currentUser)
     return (
       <div className="profile-container">
         <div className="profile-photo">
-          <img src={photo} alt="profile photo" />
+          <img src={currentUser.photo_url} alt="profile photo" />
         </div>
         <div className="profile-info">
-          <h3>{full_name}</h3>
-          <p>Role: {role}</p>
-          <p>Email: {email}</p>
+          <h3>{currentUser.full_name}</h3>
+          <p>Role: {currentUser.role}</p>
+          <p>Email: {currentUser.email}</p>
         </div>
+        <Link to='/profileform'><button>Edit</button></Link>
       </div>
     );
   }
 }
 
-export default ProfilePage;
+export default ProfileShowPage;
